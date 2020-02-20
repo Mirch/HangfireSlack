@@ -1,8 +1,5 @@
 ﻿using Hangfire;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HangfireSlack.Services
 {
@@ -16,7 +13,7 @@ namespace HangfireSlack.Services
             RecurringJob.AddOrUpdate<ISlackMessageSender>(
                 _randomFridayMessageTask,
                 job => job.SendMessageOnRandomAsync("Great job this week! Don't forget to have a beer before going home!"),
-                Cron.Weekly(DayOfWeek.Thursday, 20));
+                Cron.Weekly(DayOfWeek.Friday, 12));
         }
     }
 }
